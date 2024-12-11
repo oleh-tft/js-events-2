@@ -29,6 +29,29 @@
         красного цвета на соответствующий div. Если зажаты клавиши Ctrl + A, то красная рамка добавляется сразу
         для всех div
         */
+
+        let divs = document.body.children;
+        let divCount = divs.length - 1;
+
+        document.addEventListener("keydown", function(e) {
+            reset();
+            let num = parseInt(e.key)-1;
+            if (num >= 0 && num < divCount) {
+                divs[num].style.border = "10px solid red";
+            }
+
+            if (e.ctrlKey && e.key == "a") {
+                for (let i = 0; i < divCount; i++) {
+                    divs[i].style.border = "10px solid red";
+                }
+            }
+        });
+
+        function reset() {
+            for (let i = 0; i < divCount; i++) {
+                    divs[i].style.border = "none";
+                }
+        }
     </script>
 </body>
 
