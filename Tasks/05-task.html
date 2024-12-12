@@ -114,8 +114,8 @@
 
         function mouseEnterHandler(e)
         {
-           let age = e.target.dataset.age;
-           let email = e.target.dataset.email;
+           let age = users[e.target.dataset.userNumber].age;
+           let email = users[e.target.dataset.userNumber].email;
            output.innerHTML = `Age: ${age}<br>Email: ${email}`;
         }
         let uslerList = document.querySelector("#userList");
@@ -126,8 +126,6 @@
             let li = document.createElement("li");
             li.textContent = currentUser.name.first + " " + currentUser.name.last;
             li.dataset.userNumber = index;
-            li.dataset.age = currentUser.age;
-            li.dataset.email = currentUser.email;
             li.addEventListener("mouseenter", mouseEnterHandler);
             uslerList.append(li);
         }
